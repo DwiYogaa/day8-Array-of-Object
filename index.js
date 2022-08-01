@@ -14,24 +14,7 @@ app.use(express.urlencoded({extended: false}))
 // console.log(__dirname);
 
 app.get('/',(req,res) => {
-    res.render('index', { isLogin: isLogin, myProjects:myProjects})
-})
- 
-
-app.get('/contact-me',(req,res) => {
-    res.render('Contact-me')
-})
-
-app.get('/my-project',(req,res) => {
-    res.render('My-Project')
-})
-
-app.post('/my-project', (req,res) => {
-    const data = req.body
-    data.startDate
-    myProjects.push(data)
-    console.log(myProjects);
-
+    
     const newProject = myProjects.map((project) => {
 
         project.startDate = new Date(project.startDate);
@@ -51,12 +34,35 @@ app.post('/my-project', (req,res) => {
         console.log(project.node);
         console.log(project.vue);
     
-        // project.time1 = project.postAt;
-    
+        // project.time1 = project.postAt; 
+        
         return project;
-        res.render("index", { myProjects: newProject });
-      });
+    })
+    console.log(newProject);
+    res.render('index', {myProjects:newProject}) 
+
 })
+
+app.get('/contact-me',(req,res) => {
+    res.render('Contact-me')
+})
+
+app.get('/my-project',(req,res) => {
+    res.render('My-Project')
+})
+
+
+app.post('/my-project', (req,res) => {
+    const data = req.body
+    data.startDate
+    // myProjects.push(data)
+    console.log(myProjects);
+   
+    res.render("index");
+       
+      });
+      
+
 
 app.get('/detail-project',(req,res) => {  //:title
     // const title = req.params.title
@@ -69,8 +75,8 @@ app.listen(port, () => {
 })
 
 function getFullTime(endDate, startDate){
-    let month
-    let year
+    // let month
+    // let year
     
     let endMonth = endDate.getMonth()
     let startMonth = startDate.getMonth()
