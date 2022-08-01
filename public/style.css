@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Quicksand:wght@400;700&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    margin: 0cm;
+}
+
+/* ==== start css Navbar ==== */
+.navbar{
+  height: 7vh;
+  background-color: #488582;
+}
+.nav-icon-active{
+  color:  red !important;
+  font-weight: bold;
+}
+.btn-contactMe{
+  background-color:rgb(20, 20, 68);
+}
+/* ==== end css navbar layout ==== */
+
+
+/* === start Css home === */
+
+.container-1{
+  height: 93vh;
+  background-color: #91EAE4;
+  padding-top: 8vh;
+}
+.container-home{
+  background-color: #dcf7f5;
+  
+}
+/*=== end Css home ===*/
+
+/*=== Start css My Project ===*/
+
+.container-2{
+  background-color: #dcf7f5;
+  padding-top: 20px;
+  padding-bottom: 1000px;
+}
+
+.button-project{
+  width: 160px;
+  background-color: rgb(20, 20, 68);
+  text-align: center;
+  margin-left: 80%;
+  border-radius: 10px;
+}
+
+.container-2 h4 {
+  font-size: 25px;
+  font-weight: 900;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.project-list {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.project-list-item {
+  background-color: white;
+  width: 300px;
+  border-radius: 15px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  box-shadow: 0 0 15px rgb(150, 150, 150);
+  margin: 0 8px 38px 8px;
+}
+
+
+.project-list-item .card-img img {
+  
+  border-radius: 8px;
+  width: 100%;
+  height: 200px;
+}
+
+.project-list-item .card-title {
+  padding-left: 10px;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.project-list-item .card-drt {
+  color: #585858a6;
+  padding-left: 10px;
+  margin-top: -12px;
+}
+
+.project-list-item .card-desc {
+  margin-top: -10px;
+  font-size: 13px;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: justify;
+  height: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-list-item .card-icon img {
+  width: 40px;
+  padding-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.project-list-item .card-btn {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+  margin-top: 10px;
+}
+
+.project-list-item .card-btn button {
+  background-color:rgb(20, 20, 68) ;
+  color: #ffffff;
+  font-weight: 500;
+  margin: 0%;
+  width: 100px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+.card-btn button:hover {
+  background:lightblue;
+}
+/*=== End css My Project ===*/
+
+
+/*=== Start css contactme ===*/
+.contactMe{
+  height: 93vh;
+  background-color: #91EAE4;
+}
+
+.formContact{
+  width: 400px;
+ 
+}
+.submit{
+  background-color: rgb(20, 20, 68);
+}
+/*=== end css contactme ===*/
+
+/*=== Start css New Project ===*/
+
+.containerProject {
+  height: 93vh;
+  background-color:#91EAE4;
+  padding-top: -10vh;
+}
+  .newProject{
+    width: 600px;
+    height: 500px;
+  }
+
+  .left-checkbox{
+    margin-left: 10px;
+  }
+  .right-checkbox{
+    margin-left: 10px;
+  }
+  /*=== End css New Project ===*/
+
+  
+
+/*=== Start css my project detail ===*/
+  .project-detail {
+    background-color: #91EAE4;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+  }
+  
+  
+  /*=== End css my project detail ===*/
+
+
+  
