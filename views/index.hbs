@@ -37,51 +37,51 @@
 
     <!-- home -->
     <section class="container-1">
-   <div class="container pb-3" >
-        <div class="card border-0 container-home p-5 d-flex flex-row d-flex justify-content-between ">
-            <div class="align-self-center">
-                <h2 class="fw-bold text-black">Hi Welcome to my hut</h2>
-                <p class="desc_person">A web development professional with more than 10 years of experience
-                    contributing, with specific expertise in JavaScript, NodeJs, ReactJS, PostgresSQL, SASS. I can
-                    implement effective Website strategies on a global and international level. My biggest strength
-                    lies
-                    in understanding business dynamics, which allows me to permanently streamline my infrastructure
-                    and
-                    applications.</p>
+      <div class="container pb-3" >
+          <div class="card border-0 container-home p-5 d-flex flex-row d-flex justify-content-between ">
+              <div class="align-self-center">
+                  <h2 class="fw-bold text-black">Hi Welcome to my hut</h2>
+                  <p class="desc_person">A web development professional with more than 10 years of experience
+                      contributing, with specific expertise in JavaScript, NodeJs, ReactJS, PostgresSQL, SASS. I can
+                      implement effective Website strategies on a global and international level. My biggest strength
+                      lies
+                      in understanding business dynamics, which allows me to permanently streamline my infrastructure
+                      and
+                      applications.</p>
 
-                <div class="my-5 download-cv">
-                    <a href="https://wa.me/6281513424999" target="_blank"
-                        class="bg-dark text-decoration-none rounded-pill link-contactme py-2 px-4 text-light me-3">contact</a>
-                    <a href="#" class="text-decoration-none text-dark">Download CV <i
-                            class="fa-solid fa-download"></i></a>
-                </div>
+                  <div class="my-5 download-cv">
+                      <a href="https://wa.me/6281513424999" target="_blank"
+                          class="bg-dark text-decoration-none rounded-pill link-contactme py-2 px-4 text-light me-3">contact</a>
+                      <a href="#" class="text-decoration-none text-dark">Download CV <i
+                              class="fa-solid fa-download"></i></a>
+                  </div>
 
-                <div class="">
-                    <a href="https://www.linkedin.com/in/dwi-yoga-2b8702246/" target="_blank"
-                        class="btn btn-outline-dark py-2 px-3 me-3 rounded-circle fs-4"><i
-                            class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="https://www.instagram.com/dwiyoga00/" target="_blank"
-                        class="btn btn-outline-dark py-2 px-3 me-3 rounded-circle fs-4"><i
-                            class="fa-brands fa-instagram"></i></a>
-                    <a href="https://web.facebook.com/?_rdc=1&_rdr" target="_blank"
-                        class="btn btn-outline-dark py-2 px-3 me-3 rounded-circle fs-4"><i
-                            class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://twitter.com/" target="_blank" class="btn btn-outline-dark py-2 px-3 me-3 rounded-circle fs-4"><i
-                            class="fa-brands fa-twitter"></i></a>
-                </div>
-            </div>
+                  <div class="">
+                      <a href="https://www.linkedin.com/in/dwi-yoga-2b8702246/" target="_blank"
+                          class="btn btn-outline-dark py-2 px-3 me-3 rounded-circle fs-4"><i
+                              class="fa-brands fa-linkedin-in"></i></a>
+                      <a href="https://www.instagram.com/dwiyoga00/" target="_blank"
+                          class="btn btn-outline-dark py-2 px-3 me-3 rounded-circle fs-4"><i
+                              class="fa-brands fa-instagram"></i></a>
+                      <a href="https://web.facebook.com/?_rdc=1&_rdr" target="_blank"
+                          class="btn btn-outline-dark py-2 px-3 me-3 rounded-circle fs-4"><i
+                              class="fa-brands fa-facebook-f"></i></a>
+                      <a href="https://twitter.com/" target="_blank" class="btn btn-outline-dark py-2 px-3 me-3 rounded-circle fs-4"><i
+                              class="fa-brands fa-twitter"></i></a>
+                  </div>
+              </div>
 
-            <div class=" align-self-center">
-                <div class="card border-0 shadow bg-body rounded text-center ms-5" style="width: 20rem;">
-                    <img src="/public/assets/astronot.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="h5 fw-bolder m-0 text-success">Dwi Yoga</p>
-                        <p class="m-0 fw-normal">Fullstack Developer</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+              <div class=" align-self-center">
+                  <div class="card border-0 shadow bg-body rounded text-center ms-5" style="width: 20rem;">
+                      <img src="/public/assets/astronot.jpg" class="card-img-top" alt="...">
+                      <div class="card-body">
+                          <p class="h5 fw-bolder m-0 text-success">Dwi Yoga</p>
+                          <p class="m-0 fw-normal">Fullstack Developer</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
     </section>
 
     <!-- home -->
@@ -90,9 +90,9 @@
     
     <section class="container-2">
       {{#if isLogin}}
-      <div>
-        <a href="/my-project" class="btn text-white button-project" >Add New Project</a>
-      </div>
+        <div>
+          <a href="/my-project" class="btn text-white button-project" >Add New Project</a>
+        </div>
       {{/if}}
        
       <h4 class="mb-5">MY PROJECT</h4>
@@ -103,7 +103,7 @@
                 <img src="/public/assets/astronotA.jpg" alt="" />
               </div>
               <div class="card-title">
-                <a href='/detail-project/test-dummy' style="text-decoration: none; color:black">
+                <a href='/detail-project/{{@index}}' style="text-decoration: none; color:black;">
                   <h3>{{this.projectName}}</h3>
                 </a>
               </div>
@@ -116,17 +116,15 @@
                 </p>
               </div>
               <div class="card-icon">
-                {{this.icon}}
+                {{#each this.technologies}}
+                  <img src="./public/assets/{{this}}.png">
+                {{/each}}
               </div>
        
             {{!-- {{#if isLogin}} --}}
-              <div class="card-btn">
-                <div class="edit-btn">
-                  <button>edit</button>
-                </div>
-                <div class="del-btn">
-                  <button>delete</button>
-                </div>
+              <div class="d-flex justify-content-between text-center mt-3" style="margin: 0vh 3vh 0vh 3vh ;">
+                <a href="/edit-project" class="bg-primary btn btn-primary rounded-pill ps-4 pe-4"> Edit </a>
+                <a href="/delete/{{@index}}" class=" bg-primary btn btn-primary rounded-pill ps-3"> Delete </a>
               </div>
             {{!-- {{/if}} --}}
           </div>

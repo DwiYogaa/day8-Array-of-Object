@@ -21,25 +21,10 @@ app.get('/',(req,res) => {
         project.endDate = new Date(project.endDate);
         project.time = getFullTime(project.endDate, project.startDate);
     
-        project.icon = checkBox[
-          project.angular,
-          project.react,
-          project.node,
-          project.vue
-        ];
-    
-       
-        console.log(project.angular);
-        console.log(project.react);
-        console.log(project.node);
-        console.log(project.vue);
-    
-        // project.time1 = project.postAt; 
-        
         return project;
     })
-    console.log(newProject);
-    res.render('index', {myProjects:newProject}) 
+    // console.log(newProject);
+    res.render('index', {isLogin:isLogin, myProjects:newProject}) 
 
 })
 
@@ -54,21 +39,58 @@ app.get('/my-project',(req,res) => {
 
 app.post('/my-project', (req,res) => {
     const data = req.body
-    data.startDate
-    // myProjects.push(data)
-    console.log(myProjects);
-   
-    res.render("index");
+    myProjects.push(data)
+    // console.log(myProjects);
+    res.redirect("/");
+    // res.render("index");
        
       });
-      
+   
+app.get('/detail-project/:index',(req,res) => {  //:title
+    const index = req.params.index
 
+    const detail = myProjects [index]
 
-app.get('/detail-project',(req,res) => {  //:title
-    // const title = req.params.title
-    // console.log(title);
-    res.render('detail-project')
+    console.log(detail);
+    res.render('detail-project',{ detail })
 })
+
+app.get('/delete/:index',(req,res) => {
+    const index = req.params.index
+    myProjects.splice(index, 1);
+
+    // console.log(index);
+    res.redirect("/");
+    
+
+})
+
+app.get('/edit-project',(req,res) => {
+    const { id } = req.params;
+    const data = myProjects[id];
+    console.log(data);
+    res.render("edit-project", { data: { ...data, id }
+    });
+    res.render('edit-project')
+    
+})
+app.post('/edit-project',(req,res) => {
+    const { id } = req.params;
+    const { title, startDate, endDate, description } = req.body;
+  
+    myProjects[id] = {
+      ...myProjects[id],
+      title,
+      startDate,
+      endDate,
+      description,
+      // Image: req.body.Image,
+    };
+  
+    res.redirect("/");
+    res.render('edit-project')
+  
+    })
 
 app.listen(port, () => {
     console.log(`Personal Web App listening on port ${port}`)
@@ -86,10 +108,10 @@ function getFullTime(endDate, startDate){
     if(startYear == endYear){
         if(startMonth == endMonth){
             month = 1
-            return 'durasi ' + month + ' bulan'
+            return  month + ' Month'
         }else{
             month = endMonth - startMonth
-            return 'durasi ' + month + ' bulan'
+            return  month + ' Month'
         }
     } 
   
@@ -97,47 +119,30 @@ function getFullTime(endDate, startDate){
     if(endYear > startYear){
         if(endYear - startYear == 1){
             if(startMonth == endMonth){
-                return 'durasi 1 tahun'
+                return ' 1 tahun'
             }else if(startMonth > endMonth){
                 month = (startMonth - endMonth - 12) * -1
-                return 'durasi ' + month + ' bulan'
+                return  month + ' Month'
             }else if(startMonth < endMonth){
                 month = endMonth - startMonth
-                return 'durasi 1 tahun ' + month + ' bulan'
+                return  month + ' Month'
             }
         }else{
             year = endYear - startYear
             if(startMonth == endMonth){
-                return 'durasi ' + year + ' tahun '
+                return  year + ' Year '
             }else if(startMonth > endMonth){
                 year -= 1
                 month = (startMonth - endMonth - 12) * -1
-                return 'durasi ' + year + ' tahun ' + month + ' bulan'
+                return  year + ' Year ' + month + ' Month'
             }else if(startMonth < endMonth){
                 month = endMonth - startMonth
-                return 'durasi ' + year + ' tahun ' + month + ' bulan'
+                return  year + ' Year ' + month + ' Month'
             }
         }
     }
 
 }
   
-  function checkBox(angular, react, node, vue) {
-    if (angular == true) {
-      console.log(angular);
-      return '<img id="angular" src="/public/assets/angular.png" alt="" />';
-    } else if (react == true) {
-      console.log(react);
-      return '<img id="react" src="/public/assets/react.png" alt="" />';
-    } else if (node == true) {
-      console.log(node);
-      return '<img id="node" src="/public/assets/node.png" alt="" />';
-    } else if (vue == true) {
-      console.log(vue);
-      return '<img id="vue" src="/public/assets/vue2.png" alt="" />';
-    }
-    return false;
-  }
-
 
 
